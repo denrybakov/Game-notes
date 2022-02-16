@@ -10,6 +10,18 @@ Cоздать базу данных в PostgreSQL
   GRANT ALL PRIVILEGES ON DATABASE yourNameDB TO testUser
 ```
 
+Создать файл `.sequelizerc`
+
+```javascript
+  const path = require('path');
+  module.exports = {
+  'config': path.resolve('db', 'database.json'),
+  'models-path': path.resolve('db', 'models'),
+  'seeders-path': path.resolve('db', 'seeders'),
+  'migrations-path': path.resolve('db', 'migrations')
+};
+```
+
 Создать файл `.env` и прописать свои данные БД (env-example)
 
 Пример: 
@@ -28,5 +40,6 @@ Cоздать базу данных в PostgreSQL
 
 ```npm 
   npm i 
+  npx sequelize-cli db:migrate
   npm start
 ```
