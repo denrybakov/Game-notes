@@ -1,0 +1,12 @@
+<section class="allProducts">
+  <h2 class="title">Все продукты</h2>
+  <ul class="productsAll">
+    {{#if products}}
+      {{#each products}}
+        <li class="productsAll__item">{{this.name}}</li>
+      {{/each}}
+    {{else}}
+      <li class="productsAll__item">Пока продуктов нет...</li>
+    {{/if}}
+  </ul>
+</section>

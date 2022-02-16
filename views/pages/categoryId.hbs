@@ -1,0 +1,35 @@
+<script defer src="/js/productFront.js"></script>
+
+<section class="categoryId">
+<h3 data-id="{{category.id}}">Категория: {{category.name}} </h3>
+
+  <div class="category__block-btn">
+    <button class="btn btn__product">Добавить продукт</button>
+  </div>
+
+  {{!-- закончил со страницей Категоории --}}
+
+  <ul class="products">
+    {{#if products}}
+      {{#each products}}
+        <li class="products__item" data-id="{{this.id}}">
+          <a href="/product/{{this.id}}">{{this.name}}</a>
+          <em>Удалить</em>
+        </li>
+      {{/each}}
+    {{else}}
+      {{!-- <li class="products__item">Здесь пока ничего нет...</li> --}}
+    {{/if}}
+
+  </ul>
+
+</section>
+
+<div class="modalCategoryProduct hide">
+  <form action="/category" method="POST" class="modalCategoryProduct__form">
+  <input type="text" class="category__name" name="name" placeholder="Введите название продукта...">
+  <button class="btn">Создать</button>
+  </form>
+</div>
+
+

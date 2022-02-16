@@ -1,0 +1,39 @@
+<script defer src="/js/categoryFront.js"></script>
+
+<section class="category">
+  <div class="category__block-btn">
+    <button class="btn">Новая категория</button>
+  </div>
+    <ul class="category__list">
+    {{#if lengthCategory}} 
+        {{#each categories}}
+          <li class="profile__list-item" data-id="{{this.id}}">
+            <a href="/category/{{this.id}}">{{this.name}}</a>
+            <span class="category__edit">Изменить</span>
+            <span class="category__delete">Удалить</span>
+
+            <div class="modalCategoryEdit hide">
+              <form action="/category" method="POST" class="modalCategoryEdit__form-edit">
+              <input type="text" class="categoryEdit__name" name="name" value="{{this.name}}">
+              <button class="btn">Изменить</button>
+              </form>
+            </div>
+          </li>
+        {{/each}}
+    {{else}}
+      {{!-- <li>Пока нет категории. Но вы можете их создать.</li> --}}
+    {{/if}}
+
+  </ul>
+</section>
+
+<div class="modalCategory hide">
+  <form action="/category" method="POST" class="modalCategory__form">
+  <input type="text" class="category__name" name="name" placeholder="Введите название категории...">
+  <button class="btn">Создать</button>
+  </form>
+</div>
+
+
+
+
